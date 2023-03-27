@@ -39,7 +39,17 @@ public class BinarySearchTree {
         System.out.print(root.data + " ");
         inOrder(root.right);
     }
+    public int size() {
+        return size(root);
+    }
 
+    private int size(TreeNode node) {
+        if (node == null) {
+            return 0;
+        } else {
+            return size(node.left) + 1 + size(node.right);
+        }
+    }
         public static void main(String[] args) {
             System.out.println("Welcome to Binary Search Tree. ");
             BinarySearchTree tree = new BinarySearchTree();
@@ -47,6 +57,9 @@ public class BinarySearchTree {
             tree.insert(30);
             tree.insert(70);
             tree.inOrder(tree.root);
+            int size = tree.size();
+            System.out.println(" ");
+            System.out.println("Size of the Binary Search Tree is: " +size);
 
     }
 }
